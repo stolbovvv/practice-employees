@@ -1,0 +1,42 @@
+.list-item {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px dashed var(--color-primary-1);
+  padding-block: 0.5rem;
+}
+.list-item > * + * {
+  margin-left: 0.5rem;
+}
+.list-item__name {
+  margin-right: auto;
+}
+.list-item__button {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.375em 0.375em;
+  border: 0;
+  border-radius: 0.25em;
+  background-color: none;
+  font-size: 1.25rem;
+  color: var(--color-primary-3);
+  cursor: pointer;
+  transition: 0.25s ease 0s;
+}
+.list-item__button:hover {
+  background-color: var(--color-primary-a1);
+}
+.list-item__button_danger {
+  color: var(--color-secondary-1);
+}
+.list-item__button_danger:hover {
+  background-color: var(--color-secondary-a1);
+}
+.list-item__button.is-active {
+  background-color: var(--color-primary-1);
+  color: var(--color-neutral-1);
+}
+.list-item__button.is-active:hover {
+  background-color: var(--color-primary-2);
+}

@@ -1,0 +1,48 @@
+.header {
+  display: flex;
+  flex-direction: column;
+}
+.header__head {
+  display: flex;
+  align-items: center;
+}
+.header__head > * + * {
+  margin-left: 1.25rem;
+}
+.header__logo {
+  width: 32px;
+  height: 32px;
+}
+.header__title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+.header__info {
+  margin-top: 2rem;
+}
+.header__list {
+  list-style: none;
+}
+.header__list > * + * {
+  margin-top: 0.75rem;
+}
+.header__item {
+  display: flex;
+  font-size: 1.25rem;
+  line-height: 1.1;
+}
+.header__item-label {
+  flex: 1 1 auto;
+  display: flex;
+}
+.header__item-label::after {
+  content: '';
+  flex: 1 1 auto;
+  margin-inline: 0.5em;
+  border-bottom: 1px dotted var(--color-neutral-2);
+}
+.header__item-value {
+  flex: 0 0 auto;
+  font-weight: 800;
+}

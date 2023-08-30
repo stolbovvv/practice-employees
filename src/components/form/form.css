@@ -1,0 +1,12 @@
+.form {
+  display: flex;
+}
+.form > * + * {
+  margin-left: 0.75rem;
+}
+.form__text-input {
+  flex: 1 1 auto;
+}
+.form__button-submit {
+  flex: 0 0 auto;
+}

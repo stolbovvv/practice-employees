@@ -1,6 +1,6 @@
 /* Imposrt fonts */
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 /* Custom properties */
 
@@ -11,9 +11,15 @@
 
   --color-primary-1: hsl(260, 95%, 66%);
   --color-primary-2: hsl(260, 95%, 56%);
+  --color-primary-3: hsl(260, 95%, 46%);
+
+  --color-primary-a1: hsla(260, 95%, 66%, 0.125);
 
   --color-secondary-1: hsl(359, 56%, 56%);
   --color-secondary-2: hsl(359, 56%, 46%);
+  --color-secondary-2: hsl(359, 56%, 36%);
+
+  --color-secondary-a1: hsla(359, 56%, 56%, 0.125);
 
   --font-family-base: 'Montserrat', sans-serif;
 
@@ -90,4 +96,39 @@ body {
   font-family: var(--font-family-base);
   font-weight: 400;
   line-height: 1.4;
+  color: var(--color-neutral-3);
+  background-color: var(--color-neutral-1);
+}
+
+.wrapper {
+  height: 100%;
+}
+
+.button {
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 0.25em;
+  color: var(--color-neutral-1);
+  background-color: var(--color-primary-1);
+  transition: background-color 0.25s ease 0s;
+  cursor: pointer;
+}
+.button:focus {
+  outline-color: var(--color-primary-2);
+}
+.button:hover {
+  background-color: var(--color-primary-2);
+}
+.button:active {
+  background-color: var(--color-primary-3);
+}
+
+.input-text {
+  padding: 0.5em 1em;
+  border: 0.125rem solid var(--color-primary-1);
+  border-radius: 0.25em;
+  background-color: var(--color-neutral-1);
+}
+.input-text:focus {
+  outline-color: var(--color-primary-2);
 }
