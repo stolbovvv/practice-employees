@@ -9,9 +9,9 @@
   --color-neutral-2: #4d4a4f;
   --color-neutral-3: #232324;
 
-  --color-primary-1: hsl(260, 95%, 66%);
-  --color-primary-2: hsl(260, 95%, 56%);
-  --color-primary-3: hsl(260, 95%, 46%);
+  --color-primary-1: #8d56fb;
+  --color-primary-2: #6b24f9;
+  --color-primary-3: #5006e5;
 
   --color-primary-a1: hsla(260, 95%, 66%, 0.125);
 
@@ -23,8 +23,8 @@
 
   --font-family-base: 'Montserrat', sans-serif;
 
-  --liner-gradient-1: linear-gradient(0deg, var(--color-primary-1), var(--color-secondary-1));
-  --liner-gradient-2: linear-gradient(0deg, var(--color-primary-2), var(--color-secondary-2));
+  --liner-gradient-1: linear-gradient(90deg, var(--color-primary-1), var(--color-secondary-1));
+  --liner-gradient-2: linear-gradient(90deg, var(--color-primary-2), var(--color-secondary-2));
 }
 
 /* Minimal reset – <https://piccalil.li/blog/a-modern-css-reset> */
@@ -131,4 +131,10 @@ body {
 }
 .input-text:focus {
   outline-color: var(--color-primary-2);
+}
+.input-text.is-error {
+  border-color: var(--color-secondary-1);
+}
+.input-text.is-error:focus {
+  outline-color: var(--color-secondary-2);
 }

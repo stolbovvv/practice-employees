@@ -6,29 +6,36 @@
   margin-inline: auto;
   padding-block: 1rem;
 }
-
 .app > * + * {
   margin-top: 2rem;
 }
-
 .app__list {
   display: flex;
   flex-direction: column;
   flex: 1 1 auto;
   overflow: hidden;
 }
-
 .app__list > * + * {
   margin-top: 1.25rem;
 }
-
 .app__controls {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
 }
 .app__controls > * + * {
-  margin-left: 0.75rem;
+  margin-top: 0.75rem;
+  margin-left: 0;
 }
 .app__controls > .search {
   flex: 1 1 auto;
+}
+@media screen and (min-width: 48em) {
+  .app__controls {
+    flex-direction: row;
+  }
+  .app__controls > * + * {
+    margin-top: 0;
+    margin-left: 0.75rem;
+  }
 }

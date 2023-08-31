@@ -1,12 +1,12 @@
 import { ListItem } from '../list-item/list-item';
 import './list.css';
 
-function List() {
+function List({ data, onUpdateEmployee, onDelEmployee }) {
   return (
     <ul className="list">
-      <ListItem />
-      <ListItem />
-      <ListItem />
+      {data.map(({ id, ...data }) => (
+        <ListItem key={id} {...data} onDelEmployee={() => onDelEmployee(id)} onUpdateEmployee={(prop) => onUpdateEmployee(id, prop)} />
+      ))}
     </ul>
   );
 }

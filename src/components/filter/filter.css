@@ -2,10 +2,11 @@
   display: flex;
 }
 .filter__button-item {
+  flex: 1 1 auto;
   padding: 0.5em 1rem;
   border: 0.125rem solid var(--color-primary-1);
   cursor: pointer;
-  background-color: none;
+  background-color: transparent;
   color: var(--color-primary-1);
   transition: background-color 0.25s ease 0s;
 }

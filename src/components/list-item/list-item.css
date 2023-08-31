@@ -10,6 +10,15 @@
 .list-item__name {
   margin-right: auto;
 }
+
+.list-item_promotion .list-item__name,
+.list-item_promotion .list-item__salary {
+  font-weight: 700;
+  color: var(--color-primary-2);
+}
+.list-item__salary {
+  margin-right: 1.5rem;
+}
 .list-item__button {
   flex: 0 0 auto;
   display: flex;
@@ -18,7 +27,7 @@
   padding: 0.375em 0.375em;
   border: 0;
   border-radius: 0.25em;
-  background-color: none;
+  background-color: transparent;
   font-size: 1.25rem;
   color: var(--color-primary-3);
   cursor: pointer;
