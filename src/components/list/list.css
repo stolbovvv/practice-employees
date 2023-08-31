@@ -1,15 +1,10 @@
 .list {
   list-style: none;
+  overflow-x: hidden;
   overflow-y: auto;
-}
-
-/* Firefox */
-.list {
   scrollbar-width: thin;
   scrollbar-color: var(--color-primary-1) var(--color-neutral-1);
 }
-
-/* Chrome, Edge and Safari */
 .list::-webkit-scrollbar {
   height: 0.875rem;
   width: 0.875rem;

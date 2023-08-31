@@ -1,18 +1,21 @@
 .list-item {
   display: flex;
   align-items: center;
+  padding: 0.5rem 0.25em;
   border-bottom: 1px dashed var(--color-primary-1);
-  padding-block: 0.5rem;
 }
 .list-item > * + * {
   margin-left: 0.5rem;
 }
 .list-item__name {
   margin-right: auto;
+  padding-inline: 0.25em;
+  cursor: pointer;
 }
-
-.list-item_promotion .list-item__name,
-.list-item_promotion .list-item__salary {
+.list-item__name:focus {
+  outline-color: var(--color-primary-2);
+}
+.list-item_vacation .list-item__name {
   font-weight: 700;
   color: var(--color-primary-2);
 }
@@ -22,8 +25,6 @@
 .list-item__button {
   flex: 0 0 auto;
   display: flex;
-  align-items: center;
-  justify-content: center;
   padding: 0.375em 0.375em;
   border: 0;
   border-radius: 0.25em;
@@ -48,4 +49,19 @@
 }
 .list-item__button.is-active:hover {
   background-color: var(--color-primary-2);
+}
+.list-item__icon {
+  display: flex;
+  padding: 0.375em 0.375em;
+  border-radius: 50%;
+  background-color: var(--color-primary-1);
+  font-size: 1.25rem;
+  color: var(--color-neutral-1);
+  opacity: 0;
+  transform: translateX(50%) scale(0.25);
+  transition: all 0.25s ease 0s;
+}
+.list-item_promotion .list-item__icon {
+  opacity: 1;
+  transform: translateX(0%);
 }
