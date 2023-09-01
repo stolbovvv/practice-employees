@@ -1,40 +1,44 @@
 .list-item {
   display: flex;
   align-items: center;
-  padding: 0.5rem 0.25em;
-  border-bottom: 1px dashed var(--color-primary-1);
+  padding: 0.5rem 0.25rem;
+  border-bottom: 1px dashed var(--color-neutral-2);
 }
 .list-item > * + * {
-  margin-left: 0.5rem;
+  margin-left: 1.875rem;
 }
 .list-item__name {
   margin-right: auto;
-  padding-inline: 0.25em;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.1;
   cursor: pointer;
 }
-.list-item__name:focus {
-  outline-color: var(--color-primary-2);
-}
-.list-item_vacation .list-item__name {
-  font-weight: 700;
-  color: var(--color-primary-2);
+.list-item_is-vacation .list-item__name {
+  color: var(--color-primary-1);
 }
 .list-item__salary {
-  margin-right: 1.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+.list-item__buttons {
+  display: flex;
+}
+.list-item__buttons > * + * {
+  margin-left: 0.25em;
 }
 .list-item__button {
-  flex: 0 0 auto;
-  display: flex;
-  padding: 0.375em 0.375em;
-  border: 0;
-  border-radius: 0.25em;
-  background-color: transparent;
-  font-size: 1.25rem;
-  color: var(--color-primary-3);
+  padding: 0.25rem;
+  border: none;
+  border-radius: 50%;
+  background: none;
   cursor: pointer;
-  transition: 0.25s ease 0s;
 }
-.list-item__button:hover {
+.list-item__button_action {
+  color: var(--color-primary-1);
+}
+.list-item__button_action:hover {
   background-color: var(--color-primary-a1);
 }
 .list-item__button_danger {
@@ -43,25 +47,20 @@
 .list-item__button_danger:hover {
   background-color: var(--color-secondary-a1);
 }
-.list-item__button.is-active {
-  background-color: var(--color-primary-1);
-  color: var(--color-neutral-1);
-}
-.list-item__button.is-active:hover {
-  background-color: var(--color-primary-2);
-}
-.list-item__icon {
-  display: flex;
-  padding: 0.375em 0.375em;
-  border-radius: 50%;
-  background-color: var(--color-primary-1);
+.list-item__button-icon {
   font-size: 1.25rem;
+}
+.list-item__dynamic-icon {
+  padding: 0.25rem;
+  border-radius: 50%;
+  background-image: var(--liner-gradient-1);
+  font-size: 1.75rem;
   color: var(--color-neutral-1);
   opacity: 0;
-  transform: translateX(50%) scale(0.25);
+  transform: translateY(50%) scale(0.5);
   transition: all 0.25s ease 0s;
 }
-.list-item_promotion .list-item__icon {
+.list-item_is-promotion .list-item__dynamic-icon {
   opacity: 1;
-  transform: translateX(0%);
+  transform: translateY(0) scale(1);
 }

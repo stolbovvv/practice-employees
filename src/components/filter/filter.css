@@ -8,7 +8,7 @@
   cursor: pointer;
   background-color: transparent;
   color: var(--color-primary-1);
-  transition: background-color 0.25s ease 0s;
+  transition: all 0.25s ease 0s;
 }
 .filter__button-item + .filter__button-item {
   border-left: none;
@@ -26,15 +26,16 @@
 .filter__button-item:hover {
   background-color: var(--color-primary-a1);
 }
-
-.filter__button-item.is-current {
-  border: none;
+.filter__button-item_is-current {
+  border-color: var(--color-primary-1);
   background-color: var(--color-primary-1);
   color: var(--color-neutral-1);
 }
-.filter__button-item.is-current:hover {
+.filter__button-item_is-current:hover {
+  border-color: var(--color-primary-2);
   background-color: var(--color-primary-2);
 }
-.filter__button-item.is-current:active {
+.filter__button-item_is-current:active {
+  border-color: var(--color-primary-3);
   background-color: var(--color-primary-3);
 }

@@ -23,72 +23,67 @@ class App extends Component {
     this.lastID = 4;
   }
 
-  changeFilterType = (type) => this.setState({ filterType: type });
-  changeSearchTerm = (term) => this.setState({ searchTerm: term });
+  handleDelite = (id) => {
+    this.setState(({ data }) => {
+      return { data: data.filter((item) => item.id !== id) };
+    });
+  };
 
-  updateEmployee = (id, prop) => {
+  handleAdding = ({ name, salary }) => {
+    this.setState(({ data }) => {
+      return {
+        data: [
+          ...data,
+          {
+            id: ++this.lastID,
+            name,
+            salary: salary ? salary : 0,
+            vacation: false,
+            promotion: false,
+          },
+        ],
+      };
+    });
+  };
+
+  toggleVacation = (id) => {
     this.setState(({ data }) => ({
       data: data.map((item) => {
         if (item.id === id) {
-          return { ...item, [prop]: !item[prop] };
+          return { ...item, vacation: !item.vacation };
         } else {
-          return { ...item };
+          return item;
         }
       }),
     }));
   };
 
-  addEmployee = (name, salary) => {
+  toggleProperty = (id, property) => {
     this.setState(({ data }) => ({
-      data: [
-        ...data,
-        {
-          id: ++this.lastID,
-          name: name,
-          salary: salary,
-          vacation: false,
-          promotion: false,
-        },
-      ],
+      data: data.map((item) => {
+        if (item.id === id) {
+          return { ...item, [property]: !item[property] };
+        } else {
+          return item;
+        }
+      }),
     }));
   };
 
-  delEmployee = (id) => {
-    this.setState(({ data }) => ({ data: data.filter((item) => item.id !== id) }));
-  };
-
-  udateDataByFilter = (data, value) => {
-    switch (value) {
-      case 'Vacation':
-        return data.filter((item) => item.vacation);
-
-      case 'Promotion':
-        return data.filter((item) => item.promotion);
-
-      default:
-        return data;
-    }
-  };
-
-  udateDataBySearch = (data, value) => {
-    return data.filter((item) => item.name.match(new RegExp(value, 'i')));
-  };
-
   render() {
-    const { data, searchTerm, filterType } = this.state;
-    const view = this.udateDataByFilter(this.udateDataBySearch(data, searchTerm), filterType);
+    const { data } = this.state;
 
     return (
       <div className="app">
         <Header data={data} />
         <div className="app__list">
           <div className="app__controls">
-            <Search searchTerm={searchTerm} onChangeSearchTerm={this.changeSearchTerm} />
-            <Filter filterType={filterType} onChangeFilterType={this.changeFilterType} />
+            <Search />
+            <Filter />
           </div>
-          <List data={view} onUpdateEmployee={this.updateEmployee} onDelEmployee={this.delEmployee} />
+          <List data={data} onDelete={this.handleDelite} onToggleProperty={this.toggleProperty} />
         </div>
-        <Form onAddEmployee={this.addEmployee} />
+        <Form onAdding={this.handleAdding} />
         <Footer />
       </div>
     );

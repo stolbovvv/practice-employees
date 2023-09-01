@@ -12,23 +12,29 @@ class Form extends Component {
   }
 
   handleChange = (e) => {
-    this.setState((state) => ({ ...state, [e.target.name]: e.target.value }));
+    this.setState({ [e.target.name]: e.target.value });
     this.setState({ isError: false });
   };
 
   handleSubmit = (e) => {
     e.preventDefault();
 
-    const { name, salary } = this.state;
-
-    if (name.length < 2) {
-      this.setState({ isError: true });
+    if (this.state.name.length >= 2) {
+      this.props.onAdding({
+        name: this.state.name,
+        salary: this.state.salary,
+      });
+      this.setState({
+        name: '',
+        salary: '',
+        isError: false,
+      });
     } else {
-      this.setState({ isError: false });
-      this.props.onAddEmployee(name, salary ? +salary : 0);
+      this.setState({
+        name: '',
+        isError: true,
+      });
     }
-
-    this.setState({ name: '', salary: '' });
   };
 
   render() {
