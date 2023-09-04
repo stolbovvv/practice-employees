@@ -12,7 +12,7 @@ class App extends Component {
     super(props);
     this.state = {
       searchTerm: '',
-      filterType: 'All',
+      filterType: 'all',
       data: [
         { id: 1, name: 'John C.', salary: 1000, vacation: false, promotion: false },
         { id: 2, name: 'Alex M.', salary: 2000, vacation: false, promotion: false },
@@ -70,18 +70,45 @@ class App extends Component {
     }));
   };
 
+  handleSearch = (items, term) => {
+    if (!term.length) return items;
+
+    return items.filter(({ name }) => name.toLowerCase().includes(term.toLowerCase()));
+  };
+
+  handleFilter = (items, type) => {
+    switch (type) {
+      case 'vacation':
+        return items.filter(({ vacation }) => vacation);
+      case 'promotion':
+        return items.filter(({ promotion }) => promotion);
+
+      default:
+        return items;
+    }
+  };
+
+  updateSearch = (term) => {
+    this.setState({ searchTerm: term });
+  };
+
+  updateFilter = (type) => {
+    this.setState({ filterType: type });
+  };
+
   render() {
-    const { data } = this.state;
+    const { data, searchTerm, filterType } = this.state;
+    const viewData = this.handleFilter(this.handleSearch(data, searchTerm), filterType);
 
     return (
       <div className="app">
         <Header data={data} />
         <div className="app__list">
           <div className="app__controls">
-            <Search />
-            <Filter />
+            <Search onUpdateSearch={this.updateSearch} />
+            <Filter onUpdateFilter={this.updateFilter} filterType={filterType} />
           </div>
-          <List data={data} onDelete={this.handleDelite} onToggleProperty={this.toggleProperty} />
+          <List data={viewData} onDelete={this.handleDelite} onToggleProperty={this.toggleProperty} />
         </div>
         <Form onAdding={this.handleAdding} />
         <Footer />
