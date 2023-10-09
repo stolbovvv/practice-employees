@@ -9,7 +9,7 @@ function Footer() {
           stolbovvv
         </a>
       </span>
-      <span className="footer__year">2023</span>
+      <span className="footer__tags">React | 2023</span>
     </footer>
   );
 }
